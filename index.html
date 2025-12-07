@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ContactHub by momen</title>
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Days+One&family=Exo:ital,wght@0,100..900;1,100..900&family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Patrick+Hand&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- my css -->
+    <link rel="stylesheet" href="css/index.min.css" />
+    <!-- media query -->
+    <link rel="stylesheet" href="css/media.css" />
+    <!-- fontausom -->
+    <link rel="stylesheet" href="css/all.min.css" />
+  </head>
+
+  <body data-bs-spy="scroll" data-bs-target="#navId">
+    <!-- =========================================== nav bar ======================================================== -->
+
+    <nav
+      class="navbar navbar-expand py-2 border border-1 bg-white d-flex align-items-center"
+    >
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center">
+          <span
+            class="main-logo fs-4 rounded-4 d-flex justify-content-center align-items-center text-white"
+          >
+            <i class="fa-solid fa-address-book"></i>
+          </span>
+          <div class="d-flex flex-column ms-3 text-black">
+            <p class="fs-lg-sm fw-bold">
+              Contact <span class="main-color">Hub</span>
+            </p>
+            <span class="fs-lg-sm-span">Smart Contact Manager</span>
+          </div>
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul
+            class="navbar-nav fs-5 ms-auto align-items-center-sm d-flex align-items-center"
+          >
+            <li class="nav-item">
+              <button
+                class="botton-navbar text-white py-2 px-3 fs-lg-sm-span rounded-3 fw-bold"
+                id="addContactBtn"
+              >
+                <i class="fa-solid fa-plus"></i> Add
+                <span class="d-none-for-sm">Contact</span>
+              </button>
+            </li>
+
+            <li class="nav-item ms-3">
+              <span class="icon-Greek rounded-4 me-2 d-none-for-sm"
+                ><i class="fa-solid fa-bell"></i
+              ></span>
+            </li>
+
+            <li class="nav-item">
+              <span class="icon-Greek rounded-4 d-none-for-sm"
+                ><i class="fa-solid fa-gear"></i
+              ></span>
+            </li>
+
+            <li class="nav-item my-3 mx-1 d-flex align-items-center">
+              <div class="avatar rounded-4 overflow-hidden mx-2">
+                <img src="img/avatar-1.png" alt="avatar" />
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- =========================================== header ======================================================== -->
+    <header class="my-5 mt-lg-0">
+      <div class="container">
+        <section class="mt-5 mb-4">
+          <div class="row g-3">
+            <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+              <div
+                class="inner bg-white rounded-3 p-3 border border-1 shadow-iteams"
+              >
+                <div class="d-flex align-items-center">
+                  <span
+                    class="icons-section-1 fs-5 rounded-4 d-flex justify-content-center align-items-center text-white p-4"
+                  >
+                    <i class="fa-solid fa-users"></i>
+                  </span>
+                  <div class="d-flex flex-column ms-3 text-black">
+                    <span class="fs-lg-sm-span">TOTAL</span>
+                    <p class="fs-lg-sm fw-bold">0</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+              <div
+                class="inner bg-white rounded-3 p-3 border border-1 shadow-iteams"
+              >
+                <div class="d-flex align-items-center">
+                  <span
+                    class="icons-section-2 fs-5 rounded-4 d-flex justify-content-center align-items-center text-white p-4"
+                  >
+                    <i class="fa-solid fa-star"></i>
+                  </span>
+                  <div class="d-flex flex-column ms-3 text-black">
+                    <span class="fs-lg-sm-span">TOTAL</span>
+                    <p class="fs-lg-sm fw-bold">0</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+              <div
+                class="inner bg-white rounded-3 p-3 border border-1 shadow-iteams"
+              >
+                <div class="d-flex align-items-center">
+                  <span
+                    class="icons-section-3 fs-5 rounded-4 d-flex justify-content-center align-items-center text-white p-4"
+                  >
+                    <i class="fa-solid fa-heart-pulse"></i>
+                  </span>
+                  <div class="d-flex flex-column ms-3 text-black">
+                    <span class="fs-lg-sm-span">TOTAL</span>
+                    <p class="fs-lg-sm fw-bold">0</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="row g-2">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-9 col-xl-9">
+            <div class="inner rounded-3 p-3">
+              <h1>All Contacts</h1>
+              <p class="mt-2 mb-4">Manage and organize your 1 contacts</p>
+              <!-- ---------------------------------------- search ------------------------------------- -->
+              <div class="input-group flex-nowrap my-4">
+                <span
+                  class="input-group-text bg-white text-secondary"
+                  id="addon-wrapping"
+                  ><i class="fa-solid fa-magnifying-glass"></i
+                ></span>
+                <input
+                  autocomplete="off"
+                  type="text"
+                  class="form-control py-3"
+                  id="productSearch"
+                  oninput="searchContacts(this)"
+                  placeholder="Search by name,email,phone"
+                />
+              </div>
+              <!-- ---------------------------------------- card ------------------------------------- -->
+              <div class="row g-4" id="contactsContainer"></div>
+            </div>
+          </div>
+          <!-- ----------------------------------------------------------------------------------------------------- -->
+
+          <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3">
+            <!-- ------------------------------------ favorate--------------------------- -->
+            <div
+              class="inner bg-white rounded-4 border border-1 shadoww overflow-hidden my-3"
+            >
+              <div class="inner bg-white p-3 border border-1 bg-favorate">
+                <div class="d-flex align-items-center">
+                  <span
+                    class="icons-section-2 fs-5 rounded-4 d-flex justify-content-center align-items-center text-white"
+                  >
+                    <i class="fa-solid fa-star"></i>
+                  </span>
+                  <div class="d-flex flex-column ms-3 text-black">
+                    <p class="fw-bold fs-6">Favorites</p>
+                    <span class="text-muted fs-10"
+                      >Quick access to starred contacts</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-3 d-flex flex-column Favorites-cards">
+                <!-- <div class="d-flex justify-content-between align-items-center bg-gray-Favorites p-2 rounded-3">
+                  <div class="d-flex">
+                    <div class="profile-box text-white">
+                      <img src="img/3.jpeg" alt="" class="rounded-4" />
+                    </div>
+                    <div class="d-flex flex-column ms-3">
+                      <h5 class="mb-1">momen</h5>
+                      <p class="text-muted mb-2">01131995455</p>
+                    </div>
+                  </div>
+                  <span class="p-2 rounded-3" id="phone"
+                    ><i class="fa-solid fa-phone"></i
+                  ></span>
+                </div> -->
+              </div>
+            </div>
+
+            <!-- ------------------------------------ Emergency--------------------------- -->
+            <div
+              class="inner bg-white rounded-4 border border-1 shadoww overflow-hidden my-3"
+            >
+              <div class="inner bg-white p-3 border border-1 bg-Emergency">
+                <div class="d-flex align-items-center">
+                  <span
+                    class="icons-section-3 fs-5 rounded-4 d-flex justify-content-center align-items-center text-white"
+                  >
+                    <i class="fa-solid fa-heart-pulse"></i>
+                  </span>
+                  <div class="d-flex flex-column ms-3 text-black">
+                    <p class="fw-bold fs-6">Emergency</p>
+                    <span class="text-muted fs-10"
+                      >Important contacts for urgent calls</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-3 d-flex flex-column Emergency-cards">
+                <!-- <div class="d-flex justify-content-between align-items-center bg-gray-Emergency  p-2 rounded-3" >
+                  <div class="d-flex">
+                    <div class="profile-box text-white">
+                      <img src="img/3.jpeg" alt="" class="rounded-4" />
+                    </div>
+                    <div class="d-flex flex-column ms-3">
+                      <h5 class="mb-1">momen</h5>
+                      <p class="text-muted mb-2">01131995455</p>
+                    </div>
+                  </div>
+                  <span class="p-2 rounded-3" id="phone"
+                    ><i class="fa-solid fa-phone"></i
+                  ></span>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="row g-4" id="contactsContainer"></div>
+    <!-- =========================================== footer ======================================================== -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>

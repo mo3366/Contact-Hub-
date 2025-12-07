@@ -1,0 +1,402 @@
+body {
+  margin: 0;
+  background-color:rgb(243,247,251);
+}
+*::selection {
+    background-color: var(--main-color);
+    color: rgb(255, 255, 255);
+}
+*{
+  font-family: "Inter", sans-serif;
+}
+h1,h2,h3,h4,h5,h6,p {
+  margin: 0;
+  padding: 0;
+}
+
+.form-control:focus {
+    border-color: var(--main-color);
+    box-shadow: 0 0 0 .25rem rgba(126, 34, 254, 0.327);
+}
+
+.fs-lg-sm{
+font-size: 23px;
+}
+.fs-lg-sm-span{
+font-size: 12px;
+}
+
+.bg-main-color{
+  background-color: var(--main-color);
+}
+
+.margin-top{
+  margin-top: 300px;
+}
+:root{
+  --main-color:rgb(127,34,254);
+  --black-color:rgb(0,0,0);
+  --secound-color:rgb(190,194,200);
+  --light-font: bold;
+}
+div img{
+  width: 100%;
+  height: 100%;
+  
+}
+
+
+.shadoww{
+box-shadow: 0px 6px 10px rgba(133, 133, 133, 0.235);
+}
+
+.shadow-iteams {
+  transition: box-shadow 0.3s;
+}
+
+.shadow-iteams:hover {
+  box-shadow: 0px 6px 10px rgba(133, 133, 133, 0.235);
+}
+
+.nav-link {
+    font-weight: var(--light-font) !important ;
+  }
+.nav-item:hover {
+  color: var(--main-color);
+  }
+
+.navbar-toggler-icon {
+ 
+    border: none;
+}
+.navbar-toggler {
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--bs-navbar-color);
+    background-color: transparent;
+    border: none;
+}
+.navbar-toggler:focus {
+
+    box-shadow: 0 0 0 0;
+}
+
+.main-color{
+  color: var( --main-color) !important;
+}
+.color-2{
+   color: var( --secound-color) !important;
+}
+/* span i:hover{
+  color:black;
+  background-color: red;
+
+} */
+
+.w-90{
+  width: 90%;
+}
+
+.botton-navbar{
+background-image: linear-gradient(to right ,rgb(82,57,247),rgb(126,35,254)) ;
+border: none;
+transition: all 0.4s;
+}
+.botton-navbar:hover{
+  transform: translate(0px,-5px);
+  box-shadow: 0px 3px 7px rgba(82, 57, 247, 0.683);
+
+}
+
+/* --------------------------------------------- haader ------------------------------------ */
+.d-none-for-sm{
+  display: none;
+}
+
+ .avatar{
+  width: 50px;
+  height: 50px;
+   }
+
+ .main-logo{
+  width: 55px;
+  height: 55px;
+  background-image: linear-gradient(to right ,rgb(82,57,247),rgb(126,35,254)) ;
+
+ }
+
+
+.icon-Greek {
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+  background-color: rgb(255, 255, 255);
+  padding: 13px;
+  color: rgb(106,114,130) ;
+
+}
+.icon-Greek:hover {
+   
+  background-color: rgb(228, 228, 228);
+    color: rgb(45, 45, 45) ;
+
+
+}
+
+.icon-size-1{
+  width: 25px;
+  height: 25px;
+}
+.icon-size-2{
+    width: 45px;
+  height: 45px;
+}
+.w-40px{
+  width: 8%;
+}
+/* --------------------------------------------------------------------------------- */
+
+.yellow-alarn{
+   background-color:rgb(255,251,235) ;
+  border-left: 4px rgb(255,185,0) solid;   
+}
+.secuss-browen{
+  color: rgb(225,113,0);
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color:var(--main-color) !important;
+    background-color: var(--three-color) ;
+    border-bottom: 2px var(--main-color) solid ;
+
+}
+.nav-pills .nav-link {
+    border-radius: 0px;
+}
+
+ .nav-link:hover {
+    color:var(--black-color) ;
+}
+
+
+.nav-link {
+
+    color: rgb(74,85,101);
+    text-decoration: none;
+    background: 0 0;
+    border: 0;
+    font-weight: bold;
+        font-size: 1rem;
+        padding-inline: 10px;
+
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+
+
+
+.transiftion{
+  transition:  transform  0.3s ,background-image 0.6s  ;
+}
+.transiftion:hover{
+  transform: scale(1.1);
+  background-image: linear-gradient(to right ,rgb(242, 39, 49),rgb(217, 38, 47)) ;
+}
+
+
+
+
+
+/* الشريط بتاع الاسكرول ------------------------------- */
+
+/* للمتصفحات المبنية على WebKit (Chrome, Edge, Opera) */
+*::-webkit-scrollbar {
+  width: 10px;               /* عرض الشريط */
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;        /* لون المسار */
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgb(255,219,210);        /* لون الجزء اللي بيمشي */
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: rgb(228, 115, 87);        /* لون عند الوقوف عليه */
+}
+
+/* للفايرفوكس */
+* {
+  scrollbar-width: thin;                      /* حجم الشريط */
+  scrollbar-color: rgb(255,219,210) White;           /* thumb اللون – track اللون */
+}
+
+
+/* --------------------------------------------------- bottons ------------------------------------------- */
+.icons-section-1{
+    width:45px;
+  height:45px;
+  background-image: linear-gradient(to right ,rgb(61, 135, 255),rgb(24,99,253)) ;
+
+}
+.icons-section-2{
+    width:45px;
+  height:45px;
+  background-image: linear-gradient(to right ,rgb(255,179,0),rgb(255,114,0)) ;
+
+}
+.icons-section-3{
+    width:45px;
+  height:45px;
+  background-image: linear-gradient(to right ,rgb(255, 43, 93),rgb(233,0,25)) ;
+
+}
+
+
+
+
+
+
+/* shadow */
+.shadow-custom {
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.08);
+  transition: 0.25s;
+}
+
+.shadow-custom:hover {
+  box-shadow: 0px 8px 22px rgba(0, 0, 0, 0.12);
+}
+
+/* profile circle */
+.profile-box {
+  width: 60px;
+  height: 60px;
+  position: relative;
+}
+
+/* small badges */
+.star-badge,
+.heart-badge {
+  position: absolute;
+  background: #ffd43b;
+  color: #fff;
+  padding: 4px 6px;
+  font-size: 10px;
+  border-radius: 50%;
+}
+
+.star-badge {
+  top: -5px;
+  right: -5px;
+  background: #ffce3a;
+}
+
+.heart-badge {
+  bottom: -5px;
+  right: -5px;
+  background: #ff4b6e;
+}
+
+/* colors */
+.text-purple {
+  color: #8b5cf6 !important;
+}
+
+.bg-purple-light {
+  background: #f3e8ff !important;
+}
+
+.bg-danger-light {
+  background: #ffe4e6 !important;
+}
+
+/* icons row */
+.action-icon {
+  font-size: 18px;
+  padding: 8px;
+  border-radius: 10px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.action-icon:hover {
+  background: #f2f2f2;
+}
+.bg-purple-icon{
+  background: #f3e8ff !important;
+}
+.bg-blue-icon{
+  background: rgb(219,234,254) !important;
+}
+.bg-green-icon{
+  background: rgb(208,250,229)!important;
+}
+.text-warning:hover{
+  background-color: rgb(255, 227, 192);
+}
+.text-danger:hover{
+  background-color: rgb(255, 198, 198);
+}
+.text-success:hover{
+  background-color: rgb(208,250,229);
+}
+.text-purple:hover{
+  background-color: rgb(243,232,255);
+}
+/* -------------------------- Favorites ------------------ */
+.bg-favorate{
+    background-color:rgb(255,247,237) !important ;
+}
+.bg-gray-Favorites {
+  background-color: rgb(249, 250, 251);
+  transition: all 0.2s;
+}
+
+.bg-gray-Favorites:hover {
+  background-color: rgb(255, 247, 237);
+}
+
+/* phoneee badge */
+.bg-gray-Favorites span#phoneee {
+  background: rgb(208, 250, 229);
+  color: green;
+  transition: all 0.2s;  /* مهم جدا */
+}
+
+.bg-gray-Favorites:hover span#phoneee {
+  background-color: rgb(0, 188, 125);
+  color: white;
+}
+
+
+
+/* -------------------------- Emergency ------------------ */
+.bg-Emergency{
+    background-color:rgb(254,242,242) !important ;
+}
+.bg-gray-Emergency {
+  background-color: rgb(249, 250, 251);
+  transition: all 0.2s;
+}
+
+.bg-gray-Emergency:hover {
+  background-color: rgb(254,242,242);
+}
+
+/* phoneee badge */
+.bg-gray-Emergency span#phoneee {
+  background-color:rgb(255,228,230);
+  color: red;
+  transition: all 0.2s;  /* مهم جدا */
+}
+
+.bg-gray-Emergency:hover span#phoneee {
+  background-color: red;
+  color: white;
+}
+
+.fs-10{
+font-size: 12px;
+}
+

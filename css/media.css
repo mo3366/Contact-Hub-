@@ -1,0 +1,48 @@
+@media screen and (min-width: 576px) {
+  /* موبايل كبير أو تابلت صغير */
+}
+
+@media screen and (min-width: 768px) {
+  /* تابلت */
+
+}
+
+@media screen and (min-width: 992px) {
+  /* لابتوب صغير */
+.d-none-for-sm{
+  display: inline;
+}
+
+  .fs-lg-sm{
+font-size: 25px;
+}
+.fs-lg-sm-span{
+font-size: 13px;
+color: rgb(104, 104, 104);
+}
+ 
+}
+
+@media screen and (min-width: 1200px) {
+  /* شاشات كبيرة */
+
+  header .container{
+    height: 90vh;
+  }
+  .align-items-center-sm{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+}
+
+
+@media screen and (min-width: 1400px) {
+  /* شاشات ضخمة */
+
+}
+
+
+
+    
