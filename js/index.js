@@ -1,7 +1,7 @@
 // ==============----------------------------
 var contactsContainer = document.getElementById("contactsContainer");
 var totalCounter = document.querySelector(".icons-section-1 ~ div p"); //   contactsعدد
-var favCounter = document.querySelector(".icons-section-2 ~ div p"); // Favorite (~)->الاخ 
+var favCounter = document.querySelector(".icons-section-2 ~ div p"); // Favorite (~)->الاخ
 var emergCounter = document.querySelector(".icons-section-3 ~ div p"); // Emergency
 
 var contactsList = JSON.parse(localStorage.getItem("contacts")) || [];
@@ -89,8 +89,9 @@ function displayContacts() {
 
           <div class="d-flex justify-content-between mt-3 pt-2 border-top">
             <div class="d-flex gap-3">
-              <i class="d-flex justify-content-center align-items-center py-2 px-3 fa-solid fa-phone action-icon text-success"></i>
-              <i class="d-flex justify-content-center align-items-center py-2 px-3 fa-solid fa-envelope action-icon text-purple"></i>
+             <a href="tel:${contact.phone}" title="Call" class="text-decoration-none"> <i class="d-flex justify-content-center align-items-center py-2 px-3 fa-solid fa-phone action-icon text-success"></i></a>
+            <a href="mailto:${contact.email}" title="Send Email" class="text-decoration-none"><i class="d-flex justify-content-center align-items-center py-2 px-3 fa-solid fa-envelope action-icon text-purple"></i></a>
+
             </div>
             <div class="d-flex gap-3">
 <i onclick="toggleFavorite(${i})" class="d-flex justify-content-center align-items-center py-2 px-3 ${
@@ -149,7 +150,7 @@ function displayFavorites() {
           <p class="text-muted mb-2">${c.phone}</p>
         </div>
       </div>
-      <span class="p-2 rounded-3" id="phoneee"><i class="fa-solid fa-phone"></i></span>
+<a href="tel:${c.phone}" title="Call" class="text-decoration-none">  <span class="p-2 rounded-3" id="phoneee"><i class="fa-solid fa-phone"></i></span></a>
     </div>
       `;
     }
@@ -187,7 +188,8 @@ function displayEmergency() {
       <p class="text-muted mb-2">${c.phone}</p>
     </div>
   </div>
-  <span class="p-2 rounded-3" id="phoneee"><i class="fa-solid fa-phone"></i></span>
+ <a href="tel:${c.phone}" title="Call" class="text-decoration-none">  <span class="p-2 rounded-3" id="phoneee"><i class="fa-solid fa-phone"></i></span></a>
+
 </div>
       `;
     }
@@ -518,7 +520,7 @@ function ValidateAll(element) {
   var text = element.value.trim();
 
   var regex = {
-    fullName: /^[A-Za-z\u0600-\u06FF ]{2,50}$/, 
+    fullName: /^[A-Za-z\u0600-\u06FF ]{2,50}$/,
     phone: /^(010|011|012|015)[0-9]{8}$/,
     email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
     address: /^.{3,50}$/,
@@ -527,7 +529,6 @@ function ValidateAll(element) {
   };
 
   var optionalFields = ["email", "address", "notes", "group"];
-
 
   var messages = {
     fullName: "Name should contain only letters and spaces (2-50 characters)",
@@ -555,11 +556,11 @@ function ValidateAll(element) {
   } else {
     element.classList.remove("is-valid");
     element.classList.add("is-invalid");
-    if (errorDiv) errorDiv.textContent = messages[element.id] || "Invalid input";
+    if (errorDiv)
+      errorDiv.textContent = messages[element.id] || "Invalid input";
     return false;
   }
 }
-
 
 // ============================== Initial Display ====================
 displayContacts();
