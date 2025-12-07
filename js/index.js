@@ -263,15 +263,21 @@ function openContactForm(contact) {
       <div class="text-start">
         <label class="form-label">Full Name <span class="text-danger">*</span></label>
         <input id="fullName" type="text" class="form-control mb-3" placeholder="Enter full name" oninput="ValidateAll(this)">
+        <div class="invalid-feedback" id="fullNameError"></div>
+
 
         <label class="form-label">Phone Number <span class="text-danger">*</span></label>
         <input id="phone" type="text" class="form-control mb-3" placeholder="e.g., 01012345678" oninput="ValidateAll(this)">
+<div class="invalid-feedback" id="phoneError"></div>
+
 
         <label class="form-label">Email Address</label>
         <input id="email" type="email" class="form-control mb-3" placeholder="name@example.com" oninput="ValidateAll(this)">
+<div class="invalid-feedback" id="emailError"></div>
 
         <label class="form-label">Address</label>
         <input id="address" type="text" class="form-control mb-3" placeholder="Enter address" oninput="ValidateAll(this)">
+<div class="invalid-feedback" id="addressError"></div>
 
         <label class="form-label">Group</label>
         <select id="group" class="form-select mb-3" oninput="ValidateAll(this)">
@@ -280,9 +286,12 @@ function openContactForm(contact) {
           <option>Family</option>
           <option>Friends</option>
         </select>
+<div class="invalid-feedback" id="groupError"></div>
 
         <label class="form-label">Notes</label>
         <textarea id="notes" class="form-control mb-3" placeholder="Add notes about this contact" oninput="ValidateAll(this)"></textarea>
+        <div class="invalid-feedback" id="notesError"></div>
+
         <div class="d-flex align-items-center gap-3 mt-2">
           <label><input type="checkbox" id="favorite"> <i class="fa-solid fa-star text-warning"></i> Favorite</label>
           <label><input type="checkbox" id="emergency"> <i class="fa-solid fa-heart-pulse text-danger"></i> Emergency</label>
@@ -504,39 +513,53 @@ function searchContacts(input) {
   contactsContainer.innerHTML = box;
 }
 
-// ==================== Validate All ====================
+// ===================================================== ValidateAll ====================
 function ValidateAll(element) {
   var text = element.value.trim();
 
   var regex = {
-    fullName: /^[A-Za-z\u0600-\u06FF ]{3,25}$/, // يقبل عربي/إنجليزي
-    phone: /^(010|011|012|015)[0-9]{8}$/, // موبايل مصري صحيح
-    email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, // إيميل صحيح
-    address: /^.{3,50}$/, // عنوان مقبول
-    notes: /^.{0,200}$/, // اختياري
-    group: /^(Work|Family|Friends)?$/, // اختيار من الليست
+    fullName: /^[A-Za-z\u0600-\u06FF ]{2,50}$/, 
+    phone: /^(010|011|012|015)[0-9]{8}$/,
+    email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+    address: /^.{3,50}$/,
+    notes: /^.{0,200}$/,
+    group: /^(Work|Family|Friends)?$/,
   };
 
-  // بعض الحقول اختيارية ف نعمل اسكيب ليهم لو فاضيين
   var optionalFields = ["email", "address", "notes", "group"];
+
+
+  var messages = {
+    fullName: "Name should contain only letters and spaces (2-50 characters)",
+    phone: "Phone must be a valid Egyptian number",
+    email: "Invalid email format",
+    address: "Address must be 3-50 characters",
+    notes: "Notes must be 0-200 characters",
+    group: "Please select a valid group",
+  };
+
+  var errorDiv = document.getElementById(element.id + "Error");
 
   if (optionalFields.includes(element.id) && text === "") {
     element.classList.remove("is-invalid");
     element.classList.remove("is-valid");
+    if (errorDiv) errorDiv.textContent = "";
     return true;
   }
 
-  // لو فيه Regex للعنصر
   if (regex[element.id] && regex[element.id].test(text)) {
     element.classList.add("is-valid");
     element.classList.remove("is-invalid");
+    if (errorDiv) errorDiv.textContent = "";
     return true;
   } else {
     element.classList.remove("is-valid");
     element.classList.add("is-invalid");
+    if (errorDiv) errorDiv.textContent = messages[element.id] || "Invalid input";
     return false;
   }
 }
+
 
 // ============================== Initial Display ====================
 displayContacts();
