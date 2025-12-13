@@ -1,32 +1,34 @@
 // ==============----------------------------
 var contactsContainer = document.getElementById("contactsContainer");
-var totalCounter = document.querySelector(".icons-section-1 ~ div p"); //   contactsعدد
-var favCounter = document.querySelector(".icons-section-2 ~ div p"); // Favorite (~)->الاخ
-var emergCounter = document.querySelector(".icons-section-3 ~ div p"); // Emergency
+var totalCounter = document.querySelector(".AllTotal"); //   contactsعدد
+var favCounter = document.querySelector(".FavoriteTotal"); // Favorite 
+var emergCounter = document.querySelector(".EmergencyTotal"); // Emergency
 
 var contactsList = JSON.parse(localStorage.getItem("contacts")) || [];
-var globalIndex = null; //  لتحديث الكنتاكت
+var globalIndex = null; 
 
 // ==================== display Contacts ====================
 function displayContacts() {
-  // تحديث الـ counters
-  totalCounter.textContent = contactsList.length;
-
-  // حساب الـ favorites
+  // تحديث ال counters
+  totalCounter.innerHTML = contactsList.length;
+  // حساب ال favorites
   var favCount = 0;
   var emergCount = 0;
+
   for (var i = 0; i < contactsList.length; i++) {
     if (contactsList[i].favorite) favCount++;
     if (contactsList[i].emergency) emergCount++;
   }
-  favCounter.textContent = favCount;
-  emergCounter.textContent = emergCount;
+  favCounter.innerHTML = favCount;
+  emergCounter.innerHTML = emergCount;
+
+
 
   // كل ال  اللي اتعملت contacts
   var allHTML = "";
   if (contactsList.length === 0) {
-    allHTML = `<p class="text-center mt-3">No contacts found</p>
-    <p class="text-center mt-3 text-secondary">Click "Add Contact" to get started</p>
+    allHTML = `<p class="text-center mt-3"> No contacts found </p>
+    <p class="text-center mt-3 text-secondary"> Click "Add Contact" to get started</p>
     `;
   } else {
     for (var i = 0; i < contactsList.length; i++) {
@@ -78,19 +80,19 @@ function displayContacts() {
                   : ""
               }
               ${
-                contact.group
-                  ? '<span class="badge bg-purple-light text-purple fw-semibold">' +
-                    contact.group +
-                    "</span>"
-                  : ""
+                contact.group ? '<span class="badge bg-purple-light text-purple fw-semibold">' + contact.group + "</span>" : ""
               }
             </div>
           </div>
 
           <div class="d-flex justify-content-between mt-3 pt-2 border-top">
             <div class="d-flex gap-3">
-             <a href="tel:${contact.phone}" title="Call" class="text-decoration-none"> <i class="d-flex justify-content-center align-items-center py-2 px-3 fa-solid fa-phone action-icon text-success"></i></a>
-            <a href="mailto:${contact.email}" title="Send Email" class="text-decoration-none"><i class="d-flex justify-content-center align-items-center py-2 px-3 fa-solid fa-envelope action-icon text-purple"></i></a>
+             <a href="tel:${
+               contact.phone
+             }" title="Call" class="text-decoration-none"> <i class="d-flex justify-content-center align-items-center py-2 px-3 fa-solid fa-phone action-icon text-success"></i></a>
+            <a href="mailto:${
+              contact.email
+            }" title="Send Email" class="text-decoration-none"><i class="d-flex justify-content-center align-items-center py-2 px-3 fa-solid fa-envelope action-icon text-purple"></i></a>
 
             </div>
             <div class="d-flex gap-3">
@@ -124,44 +126,48 @@ function displayFavorites() {
   var favContainer = document.querySelector(".Favorites-cards");
   if (!favContainer) return;
 
-  var favContacts = [];
+  var favContacts = []; //array favorite 
+
   for (var i = 0; i < contactsList.length; i++) {
     if (contactsList[i].favorite) {
       favContacts.push(contactsList[i]);
     }
   }
 
-  var html = "";
+  var boxx = "";
   if (favContacts.length === 0) {
-    html = '<p class="text-center mb-0">No favorites yet ^_^ </p>';
+    boxx = '<p class="text-center mb-0"> No favorites yet ^_^ </p>';
   } else {
     for (var i = 0; i < favContacts.length; i++) {
-      var c = favContacts[i];
-      html += `
+      var fav = favContacts[i];
+      boxx += `
     <div class="d-flex justify-content-between align-items-center bg-gray-Favorites p-2 rounded-3">
       <div class="d-flex">
         <div class="profile-box text-white">
           <img src="${
-            c.photo || "img/no image.jpg"
+            fav.photo || "img/no image.jpg"
           }" alt="avatar" class="rounded-4" />
         </div>
         <div class="d-flex flex-column ms-3">
-          <h5 class="mb-1">${c.fullName}</h5>
-          <p class="text-muted mb-2">${c.phone}</p>
+          <h5 class="mb-1">${fav.fullName}</h5>
+          <p class="text-muted mb-2">${fav.phone}</p>
         </div>
       </div>
-<a href="tel:${c.phone}" title="Call" class="text-decoration-none">  <span class="p-2 rounded-3" id="phoneee"><i class="fa-solid fa-phone"></i></span></a>
+<a href="tel:${
+        fav.phone
+      }" title="Call" class="text-decoration-none">  <span class="p-2 rounded-3" id="phoneee"><i class="fa-solid fa-phone"></i></span></a>
     </div>
       `;
     }
   }
 
-  favContainer.innerHTML = html;
+  favContainer.innerHTML = boxx;
 }
 
 // ==================== display Emergency ====================
 function displayEmergency() {
   var emergContainer = document.querySelector(".Emergency-cards");
+
   if (!emergContainer) return;
 
   var emergContacts = [];
@@ -176,19 +182,21 @@ function displayEmergency() {
     html = '<p class="text-center mb-0">No emergency contacts ^_^ </p>';
   } else {
     for (var i = 0; i < emergContacts.length; i++) {
-      var c = emergContacts[i];
+      var emerg = emergContacts[i];
       html += `
 <div class="d-flex justify-content-between align-items-center bg-gray-Emergency p-2 rounded-3">
   <div class="d-flex">
     <div class="profile-box text-white">
-      <img src="${c.photo || "img/no image.jpg"}" alt="" class="rounded-4" />
+      <img src="${emerg.photo || "img/no image.jpg"}" alt="" class="rounded-4" />
     </div>
     <div class="d-flex flex-column ms-3">
-      <h5 class="mb-1">${c.fullName}</h5>
-      <p class="text-muted mb-2">${c.phone}</p>
+      <h5 class="mb-1">${emerg.fullName}</h5>
+      <p class="text-muted mb-2">${emerg.phone}</p>
     </div>
   </div>
- <a href="tel:${c.phone}" title="Call" class="text-decoration-none">  <span class="p-2 rounded-3" id="phoneee"><i class="fa-solid fa-phone"></i></span></a>
+ <a href="tel:${
+   emerg.phone
+ }" title="Call" class="text-decoration-none">  <span class="p-2 rounded-3" id="phoneee"><i class="fa-solid fa-phone"></i></span></a>
 
 </div>
       `;
@@ -199,18 +207,19 @@ function displayEmergency() {
 }
 
 // ==================== Add Contact =================================================
-document.getElementById("addContactBtn").addEventListener("click", function () {
+var AddCard = document.getElementById("addContactBtn");
+AddCard.addEventListener("click", function () {
   openContactForm();
 });
 
-// ==================== Toggle Favorite ====================
+// ==================== Toggle Favorite لما اضغط علي النجمة ====================
 function toggleFavorite(index) {
-  contactsList[index].favorite = !contactsList[index].favorite;
-  localStorage.setItem("contacts", JSON.stringify(contactsList));
+  contactsList[index].favorite = !contactsList[index].favorite; // علشان لو true تبقي false والعكس 
+  localStorage.setItem("contacts", JSON.stringify(contactsList)); 
   displayContacts();
 }
 
-// ==================== Toggle Emergency ====================
+// ==================== لما اضغط علي القلب  Toggle Emergency ====================
 function toggleEmergency(index) {
   contactsList[index].emergency = !contactsList[index].emergency;
   localStorage.setItem("contacts", JSON.stringify(contactsList));
@@ -237,16 +246,16 @@ function deleteContact(index) {
   });
 }
 
-// ================================= edit====================
+// ================================= edit ====================
 function editContact(index) {
   globalIndex = index;
   var contact = contactsList[index];
   openContactForm(contact);
 }
 
-// ==================== open Form ====================
+// ==================== open Form ==================== edit & ADD
 function openContactForm(contact) {
-  contact = contact || null;
+  contact = contact || null; //لو اتبعت او لاء 
   Swal.fire({
     title: contact ? "Edit Contact" : "Add New Contact",
     width: "600px",
@@ -329,7 +338,7 @@ function openContactForm(contact) {
           img.style.width = "100%";
           img.style.height = "100%";
           img.style.objectFit = "cover";
-          preview.appendChild(img);
+          preview.appendChild(img); //حط الصورة في الاي دي 
         }
       }
 
@@ -338,31 +347,30 @@ function openContactForm(contact) {
         Swal.close();
       };
 
-      // Change photo
-      document.getElementById("changePhotoBtn").onclick = function () {
-        document.getElementById("imageInput").click();
-      };
 
-      document
-        .getElementById("imageInput")
-        .addEventListener("change", function () {
-          var file = this.files[0];
-          if (file) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-              selectedPhoto = e.target.result;
-              var preview = document.getElementById("preview");
-              preview.innerHTML = "";
-              var img = document.createElement("img");
-              img.src = selectedPhoto;
-              img.style.width = "100%";
-              img.style.height = "100%";
-              img.style.objectFit = "cover";
-              preview.appendChild(img);
-            };
-            reader.readAsDataURL(file);
-          }
-        });
+     // change photo
+document.getElementById("changePhotoBtn").onclick = function () {
+  document.getElementById("imageInput").click();
+};
+document.getElementById("imageInput").addEventListener("change", function () {
+    if (this.files && this.files[0]) {
+      // ناخد اسم الصورة فقط
+      selectedPhoto = `img/${this.files[0].name}`;
+
+      var preview = document.getElementById("preview");
+      preview.innerHTML = "";
+
+
+      var img = document.createElement("img");
+      img.src = selectedPhoto;
+      img.style.width = "100%";
+      img.style.height = "100%";
+      img.style.objectFit = "cover";
+
+      preview.appendChild(img);
+    }
+  });
+
 
       // Save or Update
       document.getElementById("saveBtn").onclick = function () {
@@ -395,10 +403,10 @@ function openContactForm(contact) {
           });
           return;
         }
-        //========================
+        //========================------------------------------------
 
         if (contact) {
-          contactsList[globalIndex] = data;
+          contactsList[globalIndex] = data; // الداتا الجديدة
         } else {
           contactsList.push(data);
         }
@@ -509,7 +517,7 @@ function searchContacts(input) {
   }
 
   if (box === "") {
-    box = '<p class="text-center mt-3">No contacts found</p>';
+    box = '<p class="text-center mt-3"> No contacts found </p>';
   }
 
   contactsContainer.innerHTML = box;
@@ -564,3 +572,4 @@ function ValidateAll(element) {
 
 // ============================== Initial Display ====================
 displayContacts();
+
